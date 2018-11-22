@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.ar.sceneform.plugin'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -23,6 +25,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "language"
+    productFlavors {
+        java {
+            dimension "language"
+        }
+        kotlin {
+            dimension "language"
+        }
+    }
+    sourceSets {
+        java {
+            java.srcDirs = ['src/java/classes']
+        }
+        kotlin {
+            java.srcDirs = ['src/kotlin/classes']
+        }
+    }
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -32,6 +51,7 @@ dependencies {
     implementation 'com.google.ar:core:1.5.0'
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.1'
     implementation 'com.google.ar.sceneform:core:1.5.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation project(':foundation')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

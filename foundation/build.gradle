@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -14,8 +16,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "language"
+    productFlavors {
+        java {
+            dimension "language"
+        }
+        kotlin {
+            dimension "language"
+        }
+    }
+    sourceSets {
+        java {
+            java.srcDirs = ['src/java/classes']
+        }
+        kotlin {
+            java.srcDirs = ['src/kotlin/classes']
+        }
+    }
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.android.gms:play-services:9.0.0'
 }
