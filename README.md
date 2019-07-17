@@ -1,9 +1,16 @@
-# ARCore(Java)
-the project is Android demo app by [ARCore](https://developers.google.com/ar/). 
+# ARCore(Android)
+the project is Android demo app by [ARCore](https://developers.google.com/ar/?hl=ja).
 
 ## Description
-the project is developed by Android Studio(3.2.1),ARCore
+The project is develoed by Android Studio(3.3.4).
 
-Android supported 8.0 later.
+Android supported Android8.0 Later.
 
-[Supported Devices](https://developers.google.com/ar/discover/supported-devices). 
+the project depends on [Foundation(Android)](https://github.com/ucreates/android_foundation). 
+
+## Usage
+***Notes on use for Android***
+
+1.Sync gradle in your Android project.
+
+2.Build and Running Android Foundation on your Android Client App.
